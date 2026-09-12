@@ -6,7 +6,7 @@
     <title>Myanmar Quiz Mystery Reveal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-        /* MyanmarApril.ttf Font ကို Custom Font အဖြစ် တိုက်ရိုက်ခေါ်ယူခြင်း */
+        /* MyanmarApril.ttf Font ကို Custom Font အဖြစ် ခေါ်ယူခြင်း */
         @font-face {
             font-family: 'MyanmarApril';
             src: url('MyanmarApril.ttf') format('truetype');
@@ -248,6 +248,8 @@
             border: 2px solid #00f2fe;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+            background: #000;
+            position: relative;
         }
 
         .flip-card:nth-child(5) .flip-back {
@@ -260,6 +262,34 @@
             height: 100%;
             object-fit: cover;
             object-position: top center;
+        }
+
+        /* ၄ ပုံမြောက်အတွက် ဘေးမဲမနေအောင် Blur Background ခံသည့် စနစ် */
+        .blur-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(12px) brightness(0.7);
+            transform: scale(1.2);
+        }
+
+        .img-contain-relative {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            object-fit: contain !important;
         }
 
         .ending-btn {
@@ -396,31 +426,37 @@
                 <div class="flip-card" onclick="flipManual(this)">
                     <div class="flip-card-inner">
                         <div class="flip-front"><span>?</span><small>နှိပ်ပါ</small></div>
-                        <div class="flip-back"><img src="unla.jpg" alt="ဦးနေလအောင်"></div>
+                        <div class="flip-back"><img src="unla1.jpg" alt="ဦးနေလအောင် 1"></div>
                     </div>
                 </div>
                 <div class="flip-card" onclick="flipManual(this)">
                     <div class="flip-card-inner">
                         <div class="flip-front"><span>?</span><small>နှိပ်ပါ</small></div>
-                        <div class="flip-back"><img src="unla.jpg" alt="ဦးနေလအောင်"></div>
+                        <div class="flip-back"><img src="unla2.jpg" alt="ဦးနေလအောင် 2"></div>
                     </div>
                 </div>
                 <div class="flip-card" onclick="flipManual(this)">
                     <div class="flip-card-inner">
                         <div class="flip-front"><span>?</span><small>နှိပ်ပါ</small></div>
-                        <div class="flip-back"><img src="unla.jpg" alt="ဦးနေလအောင်"></div>
+                        <div class="flip-back"><img src="unla3.jpg" alt="ဦးနေလအောင် 3"></div>
                     </div>
                 </div>
+                <!-- ၄ ပုံမြောက် (Blur Background ခံထားသည်) -->
                 <div class="flip-card" onclick="flipManual(this)">
                     <div class="flip-card-inner">
                         <div class="flip-front"><span>?</span><small>နှိပ်ပါ</small></div>
-                        <div class="flip-back"><img src="unla.jpg" alt="ဦးနေလအောင်"></div>
+                        <div class="flip-back">
+                            <div class="blur-wrapper">
+                                <div class="blur-bg" style="background-image: url('unla4.jpg');"></div>
+                                <img src="unla4.jpg" class="img-contain-relative" alt="ဦးနေလအောင် 4">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="flip-card" onclick="flipManual(this)">
                     <div class="flip-card-inner">
                         <div class="flip-front"><span>🌟</span><small>Special Photo</small></div>
-                        <div class="flip-back"><img src="unla.jpg" alt="ဦးနေလအောင်"></div>
+                        <div class="flip-back"><img src="unla5.jpg" alt="ဦးနေလအောင် Special"></div>
                     </div>
                 </div>
             </div>
